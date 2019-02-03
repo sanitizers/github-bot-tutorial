@@ -178,7 +178,7 @@ Your file should now look like the following:
             },
         )
 
-   asyncio.run(main())
+    asyncio.run(main())
 
 Feel free to change the title and the body of the message.
 
