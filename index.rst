@@ -3,17 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Build-a-GitHub-Bot Workshop
-===========================
+How to Build a GitHub Bot
+=========================
 
 GitHub provides a great platform for collaborating. You can take it to the next
 level by creating custom GitHub bots. By delegating some of the chores to a bot,
 you get to spend more time developing your project and collaborating with others.
 
 Learn how to automate your workflow by building a personal GitHub assistant for
-your own project. We'll use libraries called `gidgethub <https://gidgethub.readthedocs.io>`_
-and `aiohttp <https://aiohttp.readthedocs.io>`_ to write a
-GitHub bot that does the following:
+your own project. We'll use a framework called `octomachinery 
+<https://octomachinery.dev>`_ to write a GitHub bot that does the following:
 
   - :ref:`Greet the person who created an issue in your project <greet_author>`.
 
@@ -21,36 +20,19 @@ GitHub bot that does the following:
 
   - :ref:`Apply a label to issues or pull requests <label_prs>`.
 
-  - :ref:`Gives a thumbs up reaction to comments you made <react_to_comments>`. (becoming your own personal cheer squad).
+  - :ref:`Gives a thumbs up reaction to comments you made <react_to_comments>`.
+    (becoming your own personal cheer squad).
 
-The best part is, you get to do all of the above using Python 3.6! F-strings included!
+The best part is, you get to do all of the above using Python 3.7 as the
+framework heavily relies on some of its features!
 
-This tutorial is for `PyCon US 2018 <https://us.pycon.org/2018/schedule/presentation/41/>`_
-in Cleveland, Ohio. Video recording is `here <https://youtu.be/ZwvjtCjimiw>`_.
-
-About me
-========
-
-My name is Mariatta. I live in Vancouver, Canada where I work as a Software Engineer
-for Zapier. In my free time, I help organize Vancouver PyLadies, PyCascades conference,
-and contribute to open source.
-
-I'm a Python Core Developer. I help maintain Core Python's GitHub bots:
-`bedevere <https://github.com/python/bedevere>`_ and
-`miss-islington <https://github.com/miss-islington>`_.
-
-We'll be using the same tools and technologies used by Core Python's
-team to build their bots.
-
-If you have any feedback or questions about this tutorial, please `file an issue <https://github.com/Mariatta/github-bot-tutorial/issues/new>`_.
-
-- E-mail: mariatta@python.org
-- Twitter: `@mariatta <https://twitter.com/mariatta>`_
-- `Mariatta on GitHub <https://github.com/mariatta>`_
-- `Mariatta on Patreon <https://www.patreon.com/Mariatta>`_
-
-Know of other places, conferences, or events where I can give this tutorial?
-Let me know!
+This tutorial is heavily based on `Build-a-GitHub-Bot Workshop
+<https://youtu.be/ZwvjtCjimiw>`_ by `Mariatta Wijaya
+<https://www.patreon.com/Mariatta>`_ which she first presented at
+`PyCon US 2018 <https://us.pycon.org/2018/schedule/presentation/41/>`_.
+Yet, current version uses a bit more higher level approaches to abstract
+some implementation details away from programmers and help them focus on
+the business logic part.
 
 Code of Conduct
 ===============
@@ -60,7 +42,12 @@ Be open, considerate, and respectful.
 License
 =======
 
-`CC-BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0/>`_.
+`The original tutorial <https://github-bot-tutorial.readthedocs.io>`_
+has been written by `Mariatta Wijaya <https://twitter.com/mariatta>`_,
+is licensed under `CC-BY-SA 4.0
+<https://creativecommons.org/licenses/by-sa/4.0/>`_ and adopted to use
+`octomachinery <https://octomachinery.dev>`_ framework as a basis for
+exercises by `Sviatoslav Sydorenko <https://keybase.io/webknjaz>`_.
 
 Agenda
 ======
