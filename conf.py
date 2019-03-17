@@ -19,7 +19,7 @@ http://www.sphinx-doc.org/en/master/config
 
 # -- Project information -----------------------------------------------------
 
-project = 'github-bot-tutorial'
+project = 'octomachinery bot tutorial'
 author = 'Mariatta Wijaya'
 copyright = f'2018, {author}'
 
@@ -82,11 +82,11 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-    'github_user': 'mariatta',
+    'github_user': 'sanitizers',
     'github_repo': 'github-bot-tutorial',
     'github_type': 'star',
     'github_banner': True,
-    'description': 'a.k.a an introduction to gidgethub',
+    'description': 'a.k.a an introduction to octomachinery',
     'show_relbars': True,
 }
 
