@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'github-bot-tutorial'
-copyright = '2018, Mariatta Wijaya'
 author = 'Mariatta Wijaya'
+copyright = f'2018, {author}'
 
 # The short X.Y version
 version = ''
@@ -118,7 +118,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'github-bot-tutorialdoc'
+htmlhelp_basename = f'{project}doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -146,8 +146,8 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (
-        master_doc, 'github-bot-tutorial.tex', 'github-bot-tutorial Documentation',
-        'Mariatta', 'manual',
+        master_doc, '{project}.tex', '{project} Documentation',
+        author, 'manual',
     ),
 ]
 
@@ -158,7 +158,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (
-        master_doc, 'github-bot-tutorial', 'github-bot-tutorial Documentation',
+        master_doc, project, '{project} Documentation',
         [author], 1,
     ),
 ]
@@ -171,8 +171,8 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (
-        master_doc, 'github-bot-tutorial', 'github-bot-tutorial Documentation',
-        author, 'github-bot-tutorial', 'One line description of project.',
+        master_doc, project, '{project} Documentation',
+        author, project, 'One line description of project.',
         'Miscellaneous',
     ),
 ]
