@@ -1,12 +1,13 @@
 GitHub Bots: What and Why
 =========================
 
-Welcome to the Build-a-GitHub Bot workshop!
+Welcome to the Hands-on: Creating GitHub Bots 🤖 to deal with boring routines!
 
 What are GitHub bots?
 ---------------------
 
-Applications that runs automation on GitHub, using GitHub WebHooks and APIs.
+Web applications that run automation on GitHub, using the ecosystem of
+GitHub Apps and its APIs.
 
 What can bots do?
 -----------------
@@ -23,6 +24,31 @@ getting stuck doing boring housekeeping things.
 
 Example GitHub bots
 -------------------
+
+Chronographer
+'''''''''''''
+
+Source code: https://github.com/sanitizers/chronographer-github-app
+
+Waits for Pull Request related events, as well as ``check_suite`` and
+``check_run`` with ``rerequested`` action. Every time PR is updated, it:
+
+  - retrieves and parses the PR diff
+
+  - checks whether it contains additions to changelog fragment files
+
+  - reports intermediate statuses and the final outcome back to GitHub
+    using Checks API
+
+  - uses nice visual indication and highlights the details on Checks
+    page
+
+  - can be used to block PRs where the author forgot to add a
+    change fragment
+
+  - is a GitHub App, unlocking the ability to use certain APIs
+
+  - can be used as a GitHub Action
 
 the-knight-who-says-ni
 ''''''''''''''''''''''
