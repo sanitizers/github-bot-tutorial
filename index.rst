@@ -11,7 +11,7 @@ level by creating custom GitHub bots. By delegating some of the chores to a bot,
 you get to spend more time developing your project and collaborating with others.
 
 Learn how to automate your workflow by building a personal GitHub assistant for
-your own project. We'll use a framework called `octomachinery 
+your own project. We'll use a framework called `octomachinery
 <https://octomachinery.dev>`_ to write a GitHub bot that does the following:
 
   - :ref:`Greet the person who created an issue in your project <greet_author>`.
