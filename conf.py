@@ -88,6 +88,10 @@ html_theme_options = {
     'github_banner': True,
     'description': 'a.k.a an introduction to octomachinery',
     'show_relbars': True,
+    'extra_nav_links': {
+        '🤖 octomachinery [docs]': 'https://docs.octomachinery.dev',
+        '🤖 octomachinery [www]': 'https://octomachinery.dev',
+    },
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
