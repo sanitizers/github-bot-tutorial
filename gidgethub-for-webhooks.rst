@@ -458,4 +458,3 @@ have it automatically apply a label**. This can be a "pending review" or
 "needs review" label.
 
 The relevant API call is this: https://developer.github.com/v3/issues/#edit-an-issue
-

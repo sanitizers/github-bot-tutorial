@@ -111,7 +111,7 @@ html_sidebars = {
         'navigation.html',
         'relations.html',
         'searchbox.html',
-    ]
+    ],
 }
 
 
@@ -145,8 +145,10 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'github-bot-tutorial.tex', 'github-bot-tutorial Documentation',
-     'Mariatta', 'manual'),
+    (
+        master_doc, 'github-bot-tutorial.tex', 'github-bot-tutorial Documentation',
+        'Mariatta', 'manual',
+    ),
 ]
 
 
@@ -155,8 +157,10 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'github-bot-tutorial', 'github-bot-tutorial Documentation',
-     [author], 1)
+    (
+        master_doc, 'github-bot-tutorial', 'github-bot-tutorial Documentation',
+        [author], 1,
+    ),
 ]
 
 
@@ -166,9 +170,11 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'github-bot-tutorial', 'github-bot-tutorial Documentation',
-     author, 'github-bot-tutorial', 'One line description of project.',
-     'Miscellaneous'),
+    (
+        master_doc, 'github-bot-tutorial', 'github-bot-tutorial Documentation',
+        author, 'github-bot-tutorial', 'One line description of project.',
+        'Miscellaneous',
+    ),
 ]
 
 

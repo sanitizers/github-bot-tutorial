@@ -55,5 +55,3 @@ Rebase with a branch on remote
 ::
 
    git rebase <remote>/<branchname>
-
-
