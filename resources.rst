@@ -8,12 +8,13 @@ venv
 
 See also: `Python venv tutorial`_ documentation.
 
-It is recommended that you install the Python packages inside a virtual environment.
-For this tutorial, we'll use ``venv``.
+It is recommended that you install the Python packages inside a virtual
+environment. For this tutorial, we'll use ``venv`` (but feel free to use
+any other wrapper you are comfortable with).
 
 Create a new virtual environment using venv::
 
-   python3.6 -m venv tutorial-env
+   python3.7 -m venv tutorial-env
 
 Activate the virtual environment. On Unix, Mac OS::
 
@@ -34,6 +35,17 @@ GitHub API v3 documentation
 
 - `Event Types & Payloads`_
 
+octomachinery
+-------------
+
+- Installation: ``pip install octomachinery==0.0.5``.
+
+- `octomachinery documentation`_
+
+- `octomachinery`_ source code
+
+- Owner: `Sviatoslav Sydorenko <https://twitter.com/webknjaz>`_
+
 gidgethub
 ---------
 
@@ -45,26 +57,19 @@ gidgethub
 
 - Owner: `Brett Cannon <https://brettsky.ca>`_
 
-aiohttp
--------
-
-- Installation: ``pip install aiohttp``.
-
-- `aiohttp documentation`_
-
-- `aiohttp`_ source code
-
-- Owner: `Andrew Svetlov <http://asvetlov.blogspot.ca/>`_
-
 
 f-strings
 ---------
 
 We will use some f-strings during this tutorial.
 
-My `talk <https://speakerdeck.com/mariatta/pep-498-the-monologue>`_ about f-strings.
+Mariatta's `talk
+<https://speakerdeck.com/mariatta/pep-498-the-monologue>`_ about
+f-strings.
 
-Example::
+Example:
+
+.. code:: python
 
    first_name = "bart"
    last_name = "simpson"
@@ -81,7 +86,9 @@ Example::
 asyncio
 -------
 
-Both `gidgethub` and `aiohttp` are async libraries. Read up the `quick intro <https://www.blog.pythonlibrary.org/2016/07/26/python-3-an-intro-to-asyncio/>`_
+Both `octomachinery`_ and `gidgethub`_ are both async libraries. Read up
+the `quick intro
+<https://www.blog.pythonlibrary.org/2016/07/26/python-3-an-intro-to-asyncio/>`_
 to asyncio.
 
 Heroku
@@ -97,8 +104,10 @@ Heroku
 .. _`Reactions API`: https://developer.github.com/v3/reactions/
 .. _`Event Types & Payloads`: https://developer.github.com/v3/activity/events/types/
 
-
+.. _`octomachinery documentation`: https://docs.octomachinery.dev
 .. _`gidgethub documentation`: https://gidgethub.readthedocs.io
-.. _`aiohttp documentation`: https://aiohttp.readthedocs.io
+
+.. _`octomachinery`: https://github.com/sanitizers/octomachinery
+.. _`gidgethub`: https://github.com/brettcannon/gidgethub
 
 .. _`Python on Heroku`: https://devcenter.heroku.com/categories/python
