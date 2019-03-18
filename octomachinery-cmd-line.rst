@@ -143,11 +143,13 @@ With octomachinery's GitHub API client, this looks like the following:
 
 .. code:: python
 
-   await gh.post('/repos/mariatta/strange-relationship/issues',
-                 data={
-                     'title': 'We got a problem',
-                     'body': 'Use more emoji!',
-                 })
+   await gh.post(
+       '/repos/mariatta/strange-relationship/issues',
+       data={
+           'title': 'We got a problem',
+           'body': 'Use more emoji!',
+       },
+   )
 
 Go ahead and add the above code right after you instantiate RawGitHubAPI.
 
@@ -163,11 +165,13 @@ Your file should now look like the following:
     async def main():
         access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
         gh = RawGitHubAPI(access_token, user_agent='webknjaz')
-        await gh.post('/repos/mariatta/strange-relationship/issues',
-              data={
-                  'title': 'We got a problem',
-                  'body': 'Use more emoji!',
-              })
+        await gh.post(
+            '/repos/mariatta/strange-relationship/issues',
+            data={
+                'title': 'We got a problem',
+                'body': 'Use more emoji!',
+            },
+        )
 
    asyncio.run(main())
 
@@ -202,9 +206,10 @@ Use GitHub API client to patch the issue:
 
 .. code:: python
 
-   await gh.patch('/repos/mariatta/strange-relationship/issues/28',
-                  data={'state': 'closed'},
-                  )
+   await gh.patch(
+       '/repos/mariatta/strange-relationship/issues/28',
+       data={'state': 'closed'},
+   )
 
 
 Replace ``28`` with the issue number you created.
