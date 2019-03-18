@@ -38,7 +38,7 @@ GitHub API v3 documentation
 octomachinery
 -------------
 
-- Installation: ``pip install octomachinery==0.0.6``.
+- Installation: ``pip install octomachinery==0.0.7``.
 
 - `octomachinery documentation`_
 
