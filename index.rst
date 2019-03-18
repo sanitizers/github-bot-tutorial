@@ -60,7 +60,7 @@ Agenda
    preparation
    why-github-bots
    resources
-   gidgethub-cmd-line
+   octomachinery-cmd-line
    gidgethub-for-webhooks
    whats-next
    hall-of-fame

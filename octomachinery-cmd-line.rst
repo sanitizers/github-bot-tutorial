@@ -1,32 +1,32 @@
-Using gidgethub on the command line
-===================================
+Using octomachinery client on the command line
+==============================================
 
 Let's do some simple exercises of using GitHub API to create an issue. We'll
 be doing this locally using the command line, instead of actually creating the issue
 in GitHub website.
 
-Install gidgethub and aiohttp
------------------------------
+Install octomachinery
+---------------------
 
-Install ``gidgethub`` and ``aiohttp`` if you have not already. Using a virtual environment
-is recommended.
+Install ``octomachinery`` if you have not already. Using a virtual
+environment is recommended.
 
 ::
 
-   python3.6 -m pip install gidgethub
-   python3.6 -m pip install aiohttp
+   python3.7 -m pip install octomachinery==0.0.6
 
 Create GitHub Personal Access Token
 -----------------------------------
 
 In order to use GitHub API, you'll need to create a personal access token
-that will be used to authenticate yourself to GitHub.
+that will be used to authenticate you in GitHub.
 
 1. Go to https://github.com/settings/tokens.
 
-   Or, from GitHub, go to your `Profile Settings`_ > `Developer Settings`_ > `Personal access tokens`_.
+   Or, from GitHub, go to your `Profile Settings`_ >
+   `Developer Settings`_ > `Personal access tokens`_.
 
-2. Click Generate new token.
+2. Click ``Generate new token``.
 
 3. Under ``Token description``, enter a short description, to identify the purpose
    of this token. I recommend something like: ``pycon bot tutorial``.
@@ -50,21 +50,23 @@ Store the Personal Access Token as an environment variable
 
 In Unix / Mac OS::
 
-   export GH_AUTH=your token
+   export GITHUB_TOKEN=your token
 
 In Windows::
 
-   set GH_AUTH=your token
+   set GITHUB_TOKEN=your token
 
-Note that these will only set the token for the current process. If you want
-this value stored permanently, you have to edit the bashrc file.
+Note that these will only set the token for the current process. If you
+want this value stored permanently, you have to use another way of doing
+this, like using ``dotenv``, ``direnv`` or similar (we'll omit this as
+it is out of scope of this tutorial).
 
 
 Let's get coding!
 -----------------
 
-Create a new Python file, for example: ``create_issue.py``, and open up your text
-editor.
+Create a new Python file, for example: ``create_issue.py``, and open it
+in your favorite text editor.
 
 
 Copy the following into ``create_issue.py``::
@@ -74,13 +76,12 @@ Copy the following into ``create_issue.py``::
     async def main():
         print("Hello world.")
 
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    asyncio.run(main())
 
 
 Save and run it in the command line::
 
-    python3.6 -m create_issue
+    python3.7 -m create_issue
 
 
 You should see "Hello world." printed. That was "Hello world" with asyncio! 😎
@@ -89,39 +90,45 @@ You should see "Hello world." printed. That was "Hello world" with asyncio! 😎
 Create an issue
 ---------------
 
-Ok now we want to actually work with GitHub and ``gidgethub``.
+Ok now we want to actually work with GitHub and ``octomachinery``.
 
-Add the following imports::
+Add the following imports:
+
+.. code:: python
 
    import os
-   import aiohttp
-   from gidgethub.aiohttp import GitHubAPI
+   from octomachinery.github.api.tokens import GitHubOAuthToken
+   from octomachinery.github.api.raw_client import RawGitHubAPI
 
-And replace ``print("Hello world.")`` with::
+And replace ``print("Hello world.")`` with:
 
-   async with aiohttp.ClientSession() as session:
-       gh = GitHubAPI(session, "mariatta", oauth_token=os.getenv("GH_AUTH"))
+.. code:: python
+
+   access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
+   gh = RawGitHubAPI(access_token, user_agent='webknjaz')
 
 
-Instead of "mariatta" however, use your own GitHub username.
+Instead of "webknjaz" however, use your own GitHub username.
 
-The full code now looks like the following::
+The full code now looks like the following:
+
+.. code:: python
 
    import asyncio
    import os
-   import aiohttp
-   from gidgethub.aiohttp import GitHubAPI
+   from octomachinery.github.api.tokens import GitHubOAuthToken
+   from octomachinery.github.api.raw_client import RawGitHubAPI
 
    async def main():
-       async with aiohttp.ClientSession() as session:
-           gh = GitHubAPI(session, "mariatta", oauth_token=os.getenv("GH_AUTH"))
+       access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
+       gh = RawGitHubAPI(access_token, user_agent='webknjaz')
 
-   loop = asyncio.get_event_loop()
-   loop.run_until_complete(main())
+   asyncio.run(main())
 
-So instead of printing out hello world, we're now instantiating a GitHub API from
-gidgethub, we're telling it who we are ("mariatta" in this example), and we're
-giving it the GitHub personal access token, which were stored as the ``GH_AUTH``
+So instead of printing out hello world, we're now instantiating a GitHub
+API client from ``octomachinery``, we're telling it who we are
+("webknjaz" in this example), and we're giving it the GitHub personal
+access token, which were stored as the ``GITHUB_TOKEN``
 environment variable.
 
 Now, let's create an issue in my personal repo.
@@ -132,7 +139,9 @@ It says, you can create the issue by making a ``POST`` request to the url
 ``/repos/:owner/:repo/issues`` and supply the parameters like ``title`` (required)
 and ``body``.
 
-With gidgethub, this looks like the following::
+With octomachinery's GitHub API client, this looks like the following:
+
+.. code:: python
 
    await gh.post('/repos/mariatta/strange-relationship/issues',
                  data={
@@ -140,31 +149,32 @@ With gidgethub, this looks like the following::
                      'body': 'Use more emoji!',
                  })
 
-Go ahead and add the above code right after you instantiate GitHubAPI.
+Go ahead and add the above code right after you instantiate RawGitHubAPI.
 
-Your file should now look like the following::
+Your file should now look like the following:
+
+.. code:: python
 
     import asyncio
     import os
-    import aiohttp
-    from gidgethub.aiohttp import GitHubAPI
+    from octomachinery.github.api.tokens import GitHubOAuthToken
+    from octomachinery.github.api.raw_client import RawGitHubAPI
 
     async def main():
-       async with aiohttp.ClientSession() as session:
-           gh = GitHubAPI(session, "mariatta", oauth_token=os.getenv("GH_AUTH"))
-           await gh.post('/repos/mariatta/strange-relationship/issues',
-                 data={
-                     'title': 'We got a problem',
-                     'body': 'Use more emoji!',
-                 })
+        access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
+        gh = RawGitHubAPI(access_token, user_agent='webknjaz')
+        await gh.post('/repos/mariatta/strange-relationship/issues',
+              data={
+                  'title': 'We got a problem',
+                  'body': 'Use more emoji!',
+              })
 
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+   asyncio.run(main())
 
 Feel free to change the title and the body of the message.
 
-Save and run that. There should be a new issue created in my repo. Check it out:
-https://github.com/mariatta/strange-relationship/issues
+Save and run that. There should be a new issue created in the test repo.
+Check it out: https://github.com/mariatta/strange-relationship/issues
 
 
 Comment on issue
@@ -184,11 +194,13 @@ Let's now close the issue that you've just created.
 
 Take a look at the documentation to `edit an issue`_.
 
-The method for deleting an issue is ``PATCH`` instead of ``POST``, which we've
+The method for closing an issue is ``PATCH`` instead of ``POST``, which we've
 seen in the previous two examples. In addition, to delete an issue, you're basically
 editing an issue, and setting the ``state`` to ``closed``.
 
-Use gidgethub to patch the issue::
+Use GitHub API client to patch the issue:
+
+.. code:: python
 
    await gh.patch('/repos/mariatta/strange-relationship/issues/28',
                   data={'state': 'closed'},
