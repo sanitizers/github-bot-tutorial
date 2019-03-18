@@ -97,6 +97,7 @@ Add the following imports:
 .. code:: python
 
    import os
+
    from octomachinery.github.api.tokens import GitHubOAuthToken
    from octomachinery.github.api.raw_client import RawGitHubAPI
 
@@ -116,8 +117,10 @@ The full code now looks like the following:
 
    import asyncio
    import os
+
    from octomachinery.github.api.tokens import GitHubOAuthToken
    from octomachinery.github.api.raw_client import RawGitHubAPI
+
 
    async def main():
        access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
@@ -159,8 +162,10 @@ Your file should now look like the following:
 
     import asyncio
     import os
+
     from octomachinery.github.api.tokens import GitHubOAuthToken
     from octomachinery.github.api.raw_client import RawGitHubAPI
+
 
     async def main():
         access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
