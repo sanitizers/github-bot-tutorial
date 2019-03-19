@@ -37,6 +37,7 @@ repos:
   - id: check-symlinks
   - id: check-yaml
   - id: detect-private-key
+    exclude: octomachinery-for-github-apps.rst
 
   # Heavy checks:
   - id: check-ast
