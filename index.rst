@@ -61,7 +61,7 @@ Agenda
    why-github-bots
    resources
    octomachinery-cmd-line
-   gidgethub-for-webhooks
+   octomachinery-for-github-apps
    whats-next
    hall-of-fame
    git-basics
