@@ -18,5 +18,3 @@ Example::
    Repo using the bot:
    Other info: (what does your bot do?)
    Which workshop: (PyCon SK? PyCon CZ? Somewhere else? On your own?)
-
-
