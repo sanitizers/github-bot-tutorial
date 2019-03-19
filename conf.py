@@ -40,6 +40,7 @@ version = release  # pylint: disable=invalid-name
 # ones.
 extensions = [  # pylint: disable=invalid-name
     'sphinx.ext.githubpages',
+    'sphinx.ext.intersphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -184,3 +185,13 @@ texinfo_documents = [  # pylint: disable=invalid-name
 
 
 # -- Extension configuration -------------------------------------------------
+
+# -- Options for intersphinx extension ---------------------------------------
+
+# Example configuration for intersphinx: refer to the Python standard library.
+intersphinx_mapping = {
+    'https://docs.aiohttp.org/en/latest': None,
+    'https://docs.octomachinery.dev/en/latest': None,
+    'https://docs.python.org': None,
+    'https://gidgethub.readthedocs.io/en/latest': None,
+}
