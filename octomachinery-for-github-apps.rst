@@ -232,13 +232,13 @@ Just as we need! 🎉
 
 Your file structure should now look like the following::
 
-   /webservice
+   /github-bot
    /github-bot/.env
    /github-bot/.gitignore
-   /webservice/requirements.txt
-   /webservice/runtime.txt
-   /webservice/Procfile
-   /webservice/webservice/__main__.py
+   /github-bot/requirements.txt
+   /github-bot/runtime.txt
+   /github-bot/Procfile
+   /github-bot/github_bot/__main__.py
 
 
 Commit everything (except for ``.env`` file!) and push to GitHub.
@@ -300,7 +300,7 @@ a bot that **responds to every newly created issue in your project**. For exampl
 whenever someone creates an issue, the bot will automatically say something like:
 "Thanks for the report, @user. I will look into this ASAP!"
 
-Go to the ``__main__.py`` file, in your webservice codebase.
+Go to the ``__main__.py`` file, in your ``github_bot`` codebase.
 
 The first change the part where we did is to add the following imports::
 
