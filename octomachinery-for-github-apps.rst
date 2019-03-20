@@ -137,9 +137,9 @@ key file contents into a properly escaped single-line string.
 
 .. code::
 
-    $ touch .env
-    $ GITHUB_PRIVATE_KEY_PATH=~/Downloads/your-app-slug.2019-03-24.private-key.pem
-    $ bash -c "echo -n \"GITHUB_PRIVATE_KEY='$(cat $GITHUB_PRIVATE_KEY_PATH | sed ':a;N;$!ba;s/\n/\\n/g')'\"" >> .env
+    touch .env
+    GITHUB_PRIVATE_KEY_PATH=~/Downloads/your-app-slug.2019-03-24.private-key.pem
+    cat $GITHUB_PRIVATE_KEY_PATH | python3.7 -c 'import sys; inline_private_key=r"\n".join(map(str.strip, sys.stdin.readlines())); print(f"GITHUB_PRIVATE_KEY='"'"'{inline_private_key}'"'"'", end="")' >> .env
 
 Now, copy-paste the *App ID* from the General App Settings page, which
 is still open in your browser and put it into `.env` file as a value for
