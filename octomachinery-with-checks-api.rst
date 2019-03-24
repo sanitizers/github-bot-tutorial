@@ -43,6 +43,28 @@ Add the following PR event handler:
         """
         github_api = RUNTIME_CONTEXT.app_installation_client
 
+This one is pretty easy, you're already familiar with this structure:
+it's an event handler for PR openning and editing.
+
+Let's extend it with some useful logic now.
+
+This is where Checks API interaction begins. Every GitHub App's got a
+Checks Suite attached to it. It's visible on the Checks page to where
+you can get using either Checks tab in PRs or click a commit status
+from the commit indicator on the branch page with commits list.
+
+First thing we need to do is to create a Check Run which is an entity
+representing a single task of validating something having a separate
+subpage and status indicator in the GitHub UI.
+
+Once we grab its ID we'll be able to use that in order to update
+progress, status and details of this check task as more of its code gets
+executed.
+
+Here we add two GitHub API calls: one creates a check run with the
+*queued* initial status and the other updates that status to
+*in_progress*.
+
 .. code::
 
     from datetime import datetime
@@ -80,6 +102,16 @@ Add the following PR event handler:
             },
         )
 
+.. warning::
+
+    Using this API requires setting a special marker with `antiope`
+    codename in order to flag GitHub that you *really* want to access
+    this preview api version. If you miss that, attempting to use this
+    API will result in an error response from the GitHub platform.
+
+Now, let's check the PR title and figure out whether it looks WIP or
+not:
+
 .. code::
 
     pr_title = pull_request['title'].lower()
@@ -92,9 +124,15 @@ Add the following PR event handler:
 
     is_wip_pr = any(m in pr_title for m in wip_markers)
 
+The last thing left is sending this information to GitHub.
+Let's include some illustrative data to the Checks page. For this, we'll
+use Markdown markup and some emojis 👩‍🔬.
+
+Add this snippet in the end of our ``on_pr_check_wip`` event handler:
+
 .. code::
 
-    resp = await github_api.patch(
+    await github_api.patch(
         check_runs_updates_uri,
         preview_api_version='antiope',
         data={
@@ -140,6 +178,18 @@ Add the following PR event handler:
         },
     )
 
+That's it! You can now commit, push and deploy your app to Heroku. Then,
+go create a PR in you test repo, try out adding WIP into its title and
+removing it. See what happens, visit Checks page...
+
+Action buttons
+''''''''''''''
+
+Manual editing of PR title is nice but let's have more fun and add a
+button to the Checks page!
+
+Extend the ``data`` argument of the last API call like this:
+
 .. code::
 
     ...
@@ -156,6 +206,14 @@ Add the following PR event handler:
         },
     ],
     ...
+
+Now, your Checks page will have `WIP it!` or `UnWIP it!` button
+available on the UI.
+
+Clicking that button causes another event in GitHub. So now we have to
+write another handler to properly process and react to it.
+
+Add this code to achieve what we need:
 
 .. code::
 
@@ -200,5 +258,10 @@ Add the following PR event handler:
                 'title': new_title,
             },
         )
+
+So this basically edits PR title depending on which of two buttons have
+been clicked.
+
+Redeploy your updated code to Heroku and have some fun with it!
 
 .. _`Checks API`: https://developer.github.com/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/
