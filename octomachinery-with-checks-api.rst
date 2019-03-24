@@ -34,7 +34,8 @@ Add the following PR event handler:
             *,
             action, number, pull_request,
             repository, sender,
-            assignee=None, changes=None,
+            organization,
+            installation,
     ):
         """React to an opened or changed PR event.
 
