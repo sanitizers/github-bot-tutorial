@@ -141,7 +141,8 @@ Add this snippet in the end of our ``on_pr_check_wip`` event handler:
             'conclusion': 'success' if not is_wip_pr else 'neutral',
             'completed_at': f'{datetime.utcnow().isoformat()}Z',
             'output': {
-                'title': '🤖 This PR is not Work-in-progress: Good to go',
+                'title':
+                    '🤖 This PR is not Work-in-progress: Good to go',
                 'text':
                     'Debug info: '
                     f'is_wip_pr={is_wip_pr!s} '
@@ -156,7 +157,9 @@ Add this snippet in the end of our ``on_pr_check_wip`` event handler:
                     '/173/400428874_e087aa720d_b.jpg)'
                     '</center>',
             } if not is_wip_pr else {
-                'title': '🤖 This PR is Work-in-progress: It is incomplete',
+                'title':
+                    '🤖 This PR is Work-in-progress: '
+                    'It is incomplete',
                 'text':
                     'Debug info: '
                     f'is_wip_pr={is_wip_pr!s} '
@@ -169,7 +172,8 @@ Add this snippet in the end of our ``on_pr_check_wip`` event handler:
                     '<center>'
                     '![Under constuction tape]('
                     'https://cdn.pixabay.com'
-                    '/photo/2012/04/14/14/59/border-34209_960_720.png)'
+                    '/photo/2012/04/14/14/59'
+                    '/border-34209_960_720.png)'
                     "![Homer's on the job]("
                     'https://farm3.staticflickr.com'
                     '/2150/2101058680_64fa63971e.jpg)'
