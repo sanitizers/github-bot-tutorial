@@ -51,9 +51,11 @@ Add the following PR event handler:
 
     ...
         ...
-        check_runs_base_uri = f'/repos/{repository["full_name"]}/check-runs'
         pr_head_branch = pull_request['head']['ref']
         pr_head_sha = pull_request['head']['sha']
+        repo_url = pull_request['head']['repo']['url']
+
+        check_runs_base_uri = f'{repo_url}/check-runs'
 
         resp = await github_api.post(
             check_runs_base_uri,
