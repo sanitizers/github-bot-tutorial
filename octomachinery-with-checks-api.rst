@@ -159,7 +159,7 @@ Add the following PR event handler:
 
     @process_event_actions('check_run', {'requested_action'})
     @process_webhook_payload
-    async def on_pr_check_wip(
+    async def on_pr_action_button_click(
             *,
             action, check_run, requested_action,
             repository, sender,
