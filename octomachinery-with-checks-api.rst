@@ -165,6 +165,7 @@ Add the following PR event handler:
             repository, sender,
             installation,
     ):
+        """Flip the WIP switch when user hits a button."""
         if requested_action not in {'wip', 'unwip'}:
             return
 
