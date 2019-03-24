@@ -91,7 +91,9 @@ Here we add two GitHub API calls: one creates a check run with the
             },
         )
 
-        check_runs_updates_uri = f'{check_runs_base_uri}/{resp["id"]:d}'
+        check_runs_updates_uri = (
+            f'{check_runs_base_uri}/{resp["id"]:d}'
+        )
         ...
         resp = await github_api.patch(
             check_runs_updates_uri,
