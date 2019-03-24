@@ -69,7 +69,8 @@ link address". We'll need this a bit later, in the next step.
 
    - GitHub App name (this will be turned into an app slug)
 
-   - Homepage URL (put your source code repo URL here)
+   - Homepage URL (put some URL here, you might use the same as for
+     webhooks and change it later)
 
 4. Select the following permissions:
 
