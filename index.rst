@@ -62,6 +62,7 @@ Agenda
    resources
    octomachinery-cmd-line
    octomachinery-for-github-apps
+   octomachinery-with-checks-api
    whats-next
    hall-of-fame
    git-basics
