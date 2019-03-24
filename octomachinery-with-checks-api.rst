@@ -138,4 +138,64 @@ Add the following PR event handler:
         },
     )
 
+.. code::
+
+    ...
+    ...,
+    'actions': [
+        {
+            'label': 'WIP it!',
+            'description': 'Mark the PR as WIP',
+            'identifier': 'wip',
+        } if not is_wip_pr else {
+            'label': 'UnWIP it!',
+            'description': 'Remove WIP mark from the PR',
+            'identifier': 'unwip',
+        },
+    ],
+    ...
+
+.. code::
+
+    @process_event_actions('check_run', {'requested_action'})
+    @process_webhook_payload
+    async def on_pr_check_wip(
+            *,
+            action, check_run, requested_action,
+            repository, sender,
+            installation,
+    ):
+        if requested_action not in {'wip', 'unwip'}:
+            return
+
+        github_api = RUNTIME_CONTEXT.app_installation_client
+
+        wip_it = requested_action == 'wip'
+
+        pr = check_run['pull_requests']
+        pr_title = pr['title']
+        pr_update_uri = pr['url']
+
+        if wip_it:
+            new_title = f'WIP: {pr_title}'
+        else:
+            wip_markers = (
+                'wip', '🚧', 'dnm',
+                'work in progress', 'work-in-progress',
+                'do not merge', 'do-not-merge',
+                'draft',
+            )
+
+            wip_regex = f"(\s*({'|'.join(wip_markers)}):?\s+)"
+            new_title = re.sub(
+                wip_regex, '', pr_title, flags=re.I,
+            ).replace('🚧','')
+
+        await github_api.patch(
+            pr_update_uri,
+            data={
+                'title': new_title,
+            },
+        )
+
 .. _`Checks API`: https://developer.github.com/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/
