@@ -237,12 +237,13 @@ Add this code to achieve what we need:
             installation,
     ):
         """Flip the WIP switch when user hits a button."""
-        if requested_action not in {'wip', 'unwip'}:
+        requested_action_id = requested_action['identifier']
+        if requested_action_id not in {'wip', 'unwip'}:
             return
 
         github_api = RUNTIME_CONTEXT.app_installation_client
 
-        wip_it = requested_action == 'wip'
+        wip_it = requested_action_id == 'wip'
 
         pr = check_run['pull_requests']
         pr_title = pr['title']
