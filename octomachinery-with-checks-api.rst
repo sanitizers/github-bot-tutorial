@@ -130,6 +130,12 @@ The last thing left is sending this information to GitHub.
 Let's include some illustrative data to the Checks page. For this, we'll
 use Markdown markup and some emojis 👩‍🔬.
 
+.. warning::
+
+    Please don't use emoji in the ``title`` field (corresponding to
+    Check Run) of the payload when working with Checks API. At least not
+    until the `GitHub protected branches bug`_ gets solved
+
 Add this snippet in the end of our ``on_pr_check_wip`` event handler:
 
 .. code::
@@ -271,3 +277,4 @@ been clicked.
 Redeploy your updated code to Heroku and have some fun with it!
 
 .. _`Checks API`: https://developer.github.com/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/
+.. _`GitHub protected branches bug`: https://github.community/t5/GitHub-API-Development-and/BUG-Branch-protection-settings-break-for-checks-with-emojis-%EF%B8%8F/m-p/20951/highlight/true#M1225
