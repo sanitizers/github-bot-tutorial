@@ -246,8 +246,16 @@ Add this code to achieve what we need:
         wip_it = requested_action_id == 'wip'
 
         pr = check_run['pull_requests'][0]
-        pr_title = pr['title']
-        pr_update_uri = pr['url']
+        pr_api_uri = pr['url']
+
+        pr_details = await github_api.getitem(
+            pr_api_uri,
+            data={
+                'title': new_title,
+            },
+        )
+
+        pr_title = pr_details['title']
 
         if wip_it:
             new_title = f'WIP: {pr_title}'
