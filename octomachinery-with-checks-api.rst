@@ -79,7 +79,7 @@ Here we add two GitHub API calls: one creates a check run with the
 
     ...
         ...
-        check_run_name = 'Work-in-progress state 🤖'
+        # check_run_name = 'Work-in-progress state 🤖'
         check_run_name = 'Work-in-progress state'
 
         pr_head_branch = pull_request['head']['ref']
@@ -92,7 +92,7 @@ Here we add two GitHub API calls: one creates a check run with the
             check_runs_base_uri,
             preview_api_version='antiope',
             data={
-                'name': 'Work-in-progress state 🤖',
+                'name': check_run_name,
                 'head_branch': pr_head_branch,
                 'head_sha': head_sha,
                 'status': 'queued',
@@ -108,7 +108,7 @@ Here we add two GitHub API calls: one creates a check run with the
             check_runs_updates_uri,
             preview_api_version='antiope',
             data={
-                'name': 'Work-in-progress state 🤖',
+                'name': check_run_name,
                 'status': 'in_progress',
             },
         )
@@ -147,7 +147,7 @@ Add this snippet in the end of our ``on_pr_check_wip`` event handler:
         check_runs_updates_uri,
         preview_api_version='antiope',
         data={
-            'name': 'Work-in-progress state 🤖',
+            'name': check_run_name,
             'status': 'completed',
             'conclusion': 'success' if not is_wip_pr else 'neutral',
             'completed_at': f'{datetime.utcnow().isoformat()}Z',
