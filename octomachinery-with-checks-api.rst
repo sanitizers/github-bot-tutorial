@@ -155,9 +155,9 @@ Add this snippet in the end of our ``on_pr_check_wip`` event handler:
                 'title':
                     '🤖 This PR is not Work-in-progress: Good to go',
                 'text':
-                    'Debug info: '
-                    f'is_wip_pr={is_wip_pr!s} '
-                    f'pr_title={pr_title!s} '
+                    'Debug info:\n'
+                    f'is_wip_pr={is_wip_pr!s}\n'
+                    f'pr_title={pr_title!s}\n'
                     f'wip_markers={wip_markers!r}',
                 'summary':
                     'This change is ready to be reviewed.'
@@ -170,9 +170,9 @@ Add this snippet in the end of our ``on_pr_check_wip`` event handler:
                     '🤖 This PR is Work-in-progress: '
                     'It is incomplete',
                 'text':
-                    'Debug info: '
-                    f'is_wip_pr={is_wip_pr!s} '
-                    f'pr_title={pr_title!s} '
+                    'Debug info:\n'
+                    f'is_wip_pr={is_wip_pr!s}\n'
+                    f'pr_title={pr_title!s}\n'
                     f'wip_markers={wip_markers!r}',
                 'summary':
                     '🚧 Please do not merge this PR '
