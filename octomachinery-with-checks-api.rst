@@ -203,20 +203,21 @@ Extend the ``data`` argument of the last API call like this:
 
 .. code::
 
+    import re
     ...
-    ...,
-    'actions': [
-        {
-            'label': 'WIP it!',
-            'description': 'Mark the PR as WIP',
-            'identifier': 'wip',
-        } if not is_wip_pr else {
-            'label': 'UnWIP it!',
-            'description': 'Remove WIP mark from the PR',
-            'identifier': 'unwip',
-        },
-    ],
-    ...
+        ...,
+        'actions': [
+            {
+                'label': 'WIP it!',
+                'description': 'Mark the PR as WIP',
+                'identifier': 'wip',
+            } if not is_wip_pr else {
+                'label': 'UnWIP it!',
+                'description': 'Remove WIP mark from the PR',
+                'identifier': 'unwip',
+            },
+        ],
+        ...
 
 Now, your Checks page will have `WIP it!` or `UnWIP it!` button
 available on the UI.
