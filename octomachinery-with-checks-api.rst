@@ -261,7 +261,7 @@ Add this code to achieve what we need:
             wip_regex = f"(\s*({'|'.join(wip_markers)}):?\s+)"
             new_title = re.sub(
                 wip_regex, '', pr_title, flags=re.I,
-            ).replace('🚧','')
+            ).replace('🚧', '')
 
         await github_api.patch(
             pr_update_uri,
