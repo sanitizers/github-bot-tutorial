@@ -65,6 +65,12 @@ Here we add two GitHub API calls: one creates a check run with the
 *queued* initial status and the other updates that status to
 *in_progress*.
 
+.. warning::
+
+    Please don't use emoji in the ``check_run_name`` (corresponding to
+    Check Run) of the payload when working with Checks API. At least not
+    until the `GitHub protected branches bug`_ gets solved
+
 .. code::
 
     from datetime import datetime
@@ -73,6 +79,9 @@ Here we add two GitHub API calls: one creates a check run with the
 
     ...
         ...
+        check_run_name = 'Work-in-progress state 🤖'
+        check_run_name = 'Work-in-progress state'
+
         pr_head_branch = pull_request['head']['ref']
         pr_head_sha = pull_request['head']['sha']
         repo_url = pull_request['head']['repo']['url']
@@ -129,12 +138,6 @@ not:
 The last thing left is sending this information to GitHub.
 Let's include some illustrative data to the Checks page. For this, we'll
 use Markdown markup and some emojis 👩‍🔬.
-
-.. warning::
-
-    Please don't use emoji in the ``title`` field (corresponding to
-    Check Run) of the payload when working with Checks API. At least not
-    until the `GitHub protected branches bug`_ gets solved
 
 Add this snippet in the end of our ``on_pr_check_wip`` event handler:
 
