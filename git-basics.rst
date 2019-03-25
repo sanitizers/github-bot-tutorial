@@ -1,8 +1,8 @@
 Git Cheat Sheet
 ===============
 
-There are other more complete git tutorial out there, but the following should
-help you during this workshop.
+There are other more complete git tutorials out there, but the following
+should help you during this workshop.
 
 Clone a repo
 ------------
@@ -55,3 +55,11 @@ Rebase with a branch on remote
 ::
 
    git rebase <remote>/<branchname>
+
+Extras
+------
+
+For more instructions, please consult with the `Flight rules for Git`_.
+
+.. _`Flight rules for Git`:
+   https://github.com/k88hudson/git-flight-rules
