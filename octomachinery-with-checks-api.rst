@@ -245,7 +245,7 @@ Add this code to achieve what we need:
 
         wip_it = requested_action_id == 'wip'
 
-        pr = check_run['pull_requests']
+        pr = check_run['pull_requests'][0]
         pr_title = pr['title']
         pr_update_uri = pr['url']
 
