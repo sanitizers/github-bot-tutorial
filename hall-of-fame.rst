@@ -18,3 +18,11 @@ Example::
    Repo using the bot:
    Other info: (what does your bot do?)
    Which workshop: (PyCon SK? PyCon CZ? Somewhere else? On your own?)
+   
+The Foreman PR Processor
+------------------------
+
+* Name: `PR Processor <https://github.com/apps/pr-processor/>`_
+* Repo using the bot: theforeman/*
+* Other info: Links the relevant Redmine issues based on commit messages. It verifies they're correct, such as part of the correct Redmine project.
+* Which workshop: manual
