@@ -92,6 +92,8 @@ link address". We'll need this a bit later, in the next step.
 
    - ``Label``
 
+   - ``Pull request``
+
 6. Keep ``Only on this account`` radio selected
    and hit "Create GitHub App"
 
@@ -291,7 +293,7 @@ The next one is called **GITHUB_PRIVATE_KEY**. Copy it directly from the
 private key file you've downloaded earlier. No conversion is needed this
 time.
 
-Finally, set **HOST** to ``0.0.0.0``.
+Finally, set **HOST** to ``0.0.0.0``, ``DEBUG=false`` and ``ENV=prod``.
 
 Your first GitHub bot!
 ----------------------
@@ -391,7 +393,7 @@ Take a look again at the issue event payload::
      ...
    }
 
-Did you spot it? The author's username can be accessed by ``event.data["user"]["login"]``.
+Did you spot it? The author's username can be accessed by ``issue["user"]["login"]``.
 
 So now your comment message should be::
 
