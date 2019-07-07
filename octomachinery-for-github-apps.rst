@@ -203,6 +203,14 @@ You should now see the following output::
     INFO:octomachinery.app.server.machinery:============ Serving on http://localhost:8080/ ============
     DEBUG:octomachinery.app.server.machinery:Running a GitHub App under env=dev
 
+.. warning::
+
+    If you see some configuration error about invalid value of a setting,
+    try checking env vars exported in your current terminal session.
+    The dotenv library (``envparse``) used in the framework doesn't
+    substitute those vars with values from ``.env`` file if they already
+    exist in your env. You may need to ``unset`` them before proceeding.
+
 Open your browser and point it to http://localhost:8080.  Alternatively,
 you can open another terminal and type::
 
