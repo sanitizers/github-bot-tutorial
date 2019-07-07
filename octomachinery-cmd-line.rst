@@ -13,7 +13,7 @@ environment is recommended.
 
 ::
 
-   python3.7 -m pip install octomachinery==0.0.14
+   python3.7 -m pip install octomachinery==0.0.15
 
 Create GitHub Personal Access Token
 -----------------------------------
