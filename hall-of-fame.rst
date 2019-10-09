@@ -28,3 +28,12 @@ The Foreman PR Processor
 * Repo using the bot: theforeman/*
 * Other info: Links the relevant Redmine issues based on commit messages. It verifies they're correct, such as part of the correct Redmine project.
 * Which workshop: manual
+
+Sefkhet-Abwy
+------------
+
+   Name: Sefkhet-Abwy
+   Source code: https://github.com/AICoE/Sefkhet-Abwy
+   Repo using the bot: all of https://github.com/thoth-station/ and some of https://github.com/AICoE/
+   Other info: This bot is supporting some team to manage source code: adding labels, preparing reviews of PR, ...
+   Which workshop: manual
