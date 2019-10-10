@@ -32,8 +32,8 @@ The Foreman PR Processor
 Sefkhet-Abwy
 ------------
 
-   Name: Sefkhet-Abwy
-   Source code: https://github.com/AICoE/Sefkhet-Abwy
-   Repo using the bot: all of https://github.com/thoth-station/ and some of https://github.com/AICoE/
-   Other info: This bot is supporting some team to manage source code: adding labels, preparing reviews of PR, ...
-   Which workshop: manual
+* Name: Sefkhet-Abwy
+* Source code: https://github.com/AICoE/Sefkhet-Abwy
+* Repo using the bot: all of https://github.com/thoth-station/ and some of https://github.com/AICoE/
+* Other info: This bot is supporting some team to manage source code: adding labels, preparing reviews of PR, ...
+* Which workshop: manual
