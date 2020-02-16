@@ -192,8 +192,8 @@ texinfo_documents = [  # pylint: disable=invalid-name
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    'https://docs.aiohttp.org/en/latest': None,
-    'https://docs.octomachinery.dev/en/latest': None,
-    'https://docs.python.org': None,
-    'https://gidgethub.readthedocs.io/en/latest': None,
+    'aiohttp': ('https://docs.aiohttp.org/en/latest/', None),
+    'gidgethub': ('https://gidgethub.readthedocs.io/en/latest/', None),
+    'octomachinery': ('https://docs.octomachinery.dev/en/latest/', None),
+    'python': ('https://docs.python.org/', None),
 }
