@@ -23,7 +23,7 @@ project = 'octomachinery bot tutorial'  # pylint: disable=invalid-name
 original_author = 'Mariatta Wijaya'  # pylint: disable=invalid-name
 author = 'Sviatoslav Sydorenko'  # pylint: disable=invalid-name
 # pylint: disable=invalid-name,redefined-builtin
-copyright = f'2018–2019 {author}, original: ©2018 {original_author}'
+copyright = f'2018–2020 {author}, original: ©2018 {original_author}'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'  # pylint: disable=invalid-name
