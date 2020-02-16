@@ -14,14 +14,8 @@ Before coming to the tutorial, please do the following:
    If your account has two-factor-authentication enabled, bring that device.
    (Yubikey, your phone).
 
-3. `Request access to GitHub Actions Beta
-   <https://github.com/features/actions/signup>`_, if you don't already
-   have it. **Note:** This is required for a bonus part of the tutorial
-   and may take weeks to get enrolled. It will not prevent you from
-   going through the main activities in this tutorial.
-
-4. Create a `Heroku <https://heroku.com>`_ account. Your bot will be deployed to
+3. Create a `Heroku <https://heroku.com>`_ account. Your bot will be deployed to
    Heroku.
 
-5. Install `Heroku Toolbelt <https://devcenter.heroku.com/articles/heroku-cli#download-and-install>`_.
+4. Install `Heroku Toolbelt <https://devcenter.heroku.com/articles/heroku-cli#download-and-install>`_.
    (Optional, it can be useful for debugging later).
