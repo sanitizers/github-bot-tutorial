@@ -11,9 +11,9 @@ Install octomachinery
 Install ``octomachinery`` if you have not already. Using a virtual
 environment is recommended.
 
-::
+.. parsed-literal::
 
-   python3.7 -m pip install octomachinery==0.0.17
+   python3.7 -m pip install octomachinery==\ |octomachinery_version|
 
 Create GitHub Personal Access Token
 -----------------------------------

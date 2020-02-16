@@ -30,6 +30,12 @@ release = '1.0'  # pylint: disable=invalid-name
 # The short X.Y version
 version = release  # pylint: disable=invalid-name
 
+octomachinery_version = '0.2.0'  # pylint: disable=invalid-name
+
+rst_epilog = f"""
+.. |octomachinery_version| replace:: {octomachinery_version}
+"""
+
 
 # -- General configuration ---------------------------------------------------
 
