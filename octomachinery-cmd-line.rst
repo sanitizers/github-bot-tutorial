@@ -69,14 +69,10 @@ Create a new Python file, for example: ``create_issue.py``, and open it
 in your favorite text editor.
 
 
-Copy the following into ``create_issue.py``::
+Copy the following into ``create_issue.py``:
 
-    import asyncio
-
-    async def main():
-        print("Hello world.")
-
-    asyncio.run(main())
+.. literalinclude:: resources/octomachinery-cmd-line/hello_world.py
+   :language: python
 
 
 Save and run it in the command line::
@@ -94,39 +90,25 @@ Ok now we want to actually work with GitHub and ``octomachinery``.
 
 Add the following imports:
 
-.. code:: python
-
-   import os
-
-   from octomachinery.github.api.tokens import GitHubOAuthToken
-   from octomachinery.github.api.raw_client import RawGitHubAPI
+.. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
+   :language: python
+   :lines: 2-5
 
 And replace ``print("Hello world.")`` with:
 
-.. code:: python
-
-   access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
-   gh = RawGitHubAPI(access_token, user_agent='webknjaz')
-
+.. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
+   :language: python
+   :lines: 9-10
+   :dedent: 4
 
 Instead of "webknjaz" however, use your own GitHub username.
 
 The full code now looks like the following:
 
-.. code:: python
-
-   import asyncio
-   import os
-
-   from octomachinery.github.api.tokens import GitHubOAuthToken
-   from octomachinery.github.api.raw_client import RawGitHubAPI
-
-
-   async def main():
-       access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
-       gh = RawGitHubAPI(access_token, user_agent='webknjaz')
-
-   asyncio.run(main())
+.. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
+   :language: python
+   :lines: -10,18-
+   :emphasize-lines: 2-5,9-10
 
 So instead of printing out hello world, we're now instantiating a GitHub
 API client from ``octomachinery``, we're telling it who we are
@@ -144,41 +126,18 @@ and ``body``.
 
 With octomachinery's GitHub API client, this looks like the following:
 
-.. code:: python
-
-   await gh.post(
-       '/repos/mariatta/strange-relationship/issues',
-       data={
-           'title': 'We got a problem',
-           'body': 'Use more emoji!',
-       },
-   )
+.. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
+   :language: python
+   :lines: 11-17
+   :dedent: 4
 
 Go ahead and add the above code right after you instantiate RawGitHubAPI.
 
 Your file should now look like the following:
 
-.. code:: python
-
-    import asyncio
-    import os
-
-    from octomachinery.github.api.tokens import GitHubOAuthToken
-    from octomachinery.github.api.raw_client import RawGitHubAPI
-
-
-    async def main():
-        access_token = GitHubOAuthToken(os.environ["GITHUB_TOKEN"])
-        gh = RawGitHubAPI(access_token, user_agent='webknjaz')
-        await gh.post(
-            '/repos/mariatta/strange-relationship/issues',
-            data={
-                'title': 'We got a problem',
-                'body': 'Use more emoji!',
-            },
-        )
-
-    asyncio.run(main())
+.. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
+   :language: python
+   :emphasize-lines: 11-17
 
 Feel free to change the title and the body of the message.
 
@@ -209,12 +168,11 @@ editing an issue, and setting the ``state`` to ``closed``.
 
 Use GitHub API client to patch the issue:
 
-.. code:: python
-
-   await gh.patch(
-       '/repos/mariatta/strange-relationship/issues/28',
-       data={'state': 'closed'},
-   )
+.. literalinclude:: resources/octomachinery-cmd-line/close_issue.py
+   :language: python
+   :lines: 11-15
+   :emphasize-lines: 4
+   :dedent: 4
 
 
 Replace ``28`` with the issue number you created.
@@ -224,6 +182,15 @@ Bonus exercise
 --------------
 
 `Add reaction`_ to an issue.
+            preview_api_version='antiope',
+
+  .. attention::
+
+    Pay attention at the blue ``Note:`` box in the docs. Using this API
+    endpoint requires setting a special marker with ``squirrel-girl``
+    codename in order to flag GitHub that you *really* want to access
+    this *preview* api version. If you miss that, attempting to use this
+    API will result in an error response from the GitHub platform.
 
 
 .. _`Profile Settings`: https://github.com/settings/profile
