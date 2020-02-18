@@ -100,7 +100,7 @@ And replace ``print("Hello world.")`` with:
 
 .. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
    :language: python
-   :lines: 10-12
+   :lines: 10-16
    :dedent: 4
 
 Instead of "webknjaz" however, use your own GitHub username.
@@ -110,7 +110,7 @@ The full code now looks like the following:
 .. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
    :language: python
    :lines: -12,20-
-   :emphasize-lines: 2-6,10-12
+   :emphasize-lines: 2-6,10-16
 
 So instead of printing out hello world, we're now instantiating a GitHub
 API client from ``octomachinery``, we're telling it who we are
@@ -130,7 +130,7 @@ With octomachinery's GitHub API client, this looks like the following:
 
 .. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
    :language: python
-   :lines: 13-19
+   :lines: 17-23
    :dedent: 8
 
 Go ahead and add the above code right after you instantiate
@@ -140,7 +140,7 @@ Your file should now look like the following:
 
 .. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
    :language: python
-   :emphasize-lines: 13-19
+   :emphasize-lines: 17-23
 
 Feel free to change the title and the body of the message.
 
@@ -175,7 +175,7 @@ Use GitHub API client to patch the issue:
 
 .. literalinclude:: resources/octomachinery-cmd-line/close_issue.py
    :language: python
-   :lines: 13-17
+   :lines: 17-21
    :emphasize-lines: 4
    :dedent: 8
 
