@@ -196,12 +196,15 @@ You should now see the following output::
 
     DEBUG:octomachinery.app.server.runner:================ App version: 1.0.0 =================
     DEBUG:asyncio:Using selector: EpollSelector
-    INFO:octomachinery.github.api.app_client:This GitHub App is installed into:
+    DEBUG:octomachinery.app.server.machinery:The GitHub App env is set to `dev`
+    INFO:octomachinery.app.server.machinery:Webhook secret is [NOT SET]: SIGNED WEBHOOKS WILL BE REJECTED
     INFO:octomachinery.app.server.machinery:Starting the following GitHub App:
     INFO:octomachinery.app.server.machinery:* app id: 21717
+    INFO:octomachinery.app.server.machinery:* private key SHA-1 fingerprint: 7d:96:e8:e5:8f:07:b5:10:97:85:2a:f4:33:72:b7:08:a5:81:82:92
     INFO:octomachinery.app.server.machinery:* user agent: PyCon-Bot-by-webknjaz/1.0.0 (+https://github.com/apps/pyyyyyycoooon-booooot111)
-    INFO:octomachinery.app.server.machinery:============ Serving on http://localhost:8080/ ============
-    DEBUG:octomachinery.app.server.machinery:Running a GitHub App under env=dev
+    INFO:octomachinery.github.api.app_client:This GitHub App is installed into:
+    INFO:octomachinery.github.api.app_client:* Installation id 491111 (installed to webknjaz)
+    INFO:octomachinery.app.server.machinery:================= Serving on http://localhost:8080 ==================
 
 .. warning::
 
