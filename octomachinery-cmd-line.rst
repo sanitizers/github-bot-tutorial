@@ -182,7 +182,6 @@ Bonus exercise
 --------------
 
 `Add reaction`_ to an issue.
-            preview_api_version='antiope',
 
   .. attention::
 
@@ -191,6 +190,9 @@ Bonus exercise
     codename in order to flag GitHub that you *really* want to access
     this *preview* api version. If you miss that, attempting to use this
     API will result in an error response from the GitHub platform.
+
+    Please, pass it as ``preview_api_version='squirrel-girl'`` argument
+    each time you make this API call.
 
 
 .. _`Profile Settings`: https://github.com/settings/profile
