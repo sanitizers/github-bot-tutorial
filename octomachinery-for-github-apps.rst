@@ -156,8 +156,8 @@ is still open in your browser and put it into `.env` file as a value for
     DEBUG=true
     ENV=dev
 
-After that, create a `.gitignore` in the same folder, it should contain
-`.env` entry. You can use the following command to download appropriate
+After that, create a ``.gitignore`` in the same folder, it should contain
+``.env`` entry. You can use the following command to download appropriate
 template::
 
     wget -O - https://www.gitignore.io/api/git%2Cdotenv%2Clinux%2Cpydev%2Cpython%2Cwindows%2Cpycharm%2Ball%2Cjupyternotebooks%2Cvim%2Cwebstorm%2Cemacs >> .gitignore
@@ -165,7 +165,7 @@ template::
 In the same directory, create another directory called ``github_bot``.
 Inside this new directory, create ``__main__.py``.
 
-Your ``github-bot`` should now look as follows::
+Your ``github-bot/`` should now look as follows::
 
    /github-bot
    /github-bot/.env
