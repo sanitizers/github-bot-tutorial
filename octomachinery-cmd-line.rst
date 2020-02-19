@@ -109,7 +109,7 @@ The full code now looks like the following:
 
 .. literalinclude:: resources/octomachinery-cmd-line/create_issue.py
    :language: python
-   :lines: -12,20-
+   :lines: -16,24-
    :emphasize-lines: 2-6,10-16
 
 So instead of printing out hello world, we're now instantiating a GitHub
