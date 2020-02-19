@@ -69,6 +69,11 @@ Let's get coding!
 Create a new Python file, for example: ``create_issue.py``, and open it
 in your favorite text editor.
 
+  .. note::
+
+     You can optionally create a working directory where you'll put this
+     file but for the purposes of this tutorial page it's unnecessary.
+
 
 Copy the following into ``create_issue.py``:
 
