@@ -56,7 +56,7 @@ link address". We'll need this a bit later, in the next step.
 `Create a new GitHub App`_
 --------------------------
 
-1. Go to `Profile Settings`_ > `Developer Settings`_ > `GitHub Apps`_ >
+1. Go to `profile Settings`_ > `Developer Settings`_ > `GitHub Apps`_ >
    `New GitHub App`_
 
 2. Click `"New GitHub App" <https://github.com/settings/apps/new>`_.
@@ -488,7 +488,7 @@ have it automatically apply a label**. This can be a "pending review" or
 
 The relevant API call is this: https://developer.github.com/v3/issues/#edit-an-issue
 
-.. _`Profile Settings`: https://github.com/settings/profile
+.. _`profile Settings`: https://github.com/settings/profile
 .. _`Developer Settings`: https://github.com/settings/developers
 .. _`GitHub Apps`: https://github.com/settings/apps
 .. _`New GitHub App`: https://github.com/settings/apps/new

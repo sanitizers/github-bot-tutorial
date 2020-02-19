@@ -23,7 +23,7 @@ that will be used to authenticate you in GitHub.
 
 1. Go to https://github.com/settings/tokens.
 
-   Or, from GitHub, go to your `Profile Settings`_ >
+   Or, from GitHub, go to your `profile Settings`_ >
    `Developer Settings`_ > `Personal access tokens`_.
 
 2. Click ``Generate new token``.
@@ -205,7 +205,7 @@ Bonus exercise
     each time you make this API call.
 
 
-.. _`Profile Settings`: https://github.com/settings/profile
+.. _`profile Settings`: https://github.com/settings/profile
 .. _`Developer Settings`: https://github.com/settings/developers
 .. _`Personal access tokens`: https://github.com/settings/tokens
 .. _`GitHub's scope documentation`:
