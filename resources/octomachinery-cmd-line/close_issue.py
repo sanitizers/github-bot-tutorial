@@ -17,7 +17,7 @@ async def main():
         await gh.patch(
             '/repos/mariatta/strange-relationship/issues{/number}',
             data={'state': 'closed'},
-            url_vars={'number': 28},
+            url_vars={'number': '28'},
         )
 
 
