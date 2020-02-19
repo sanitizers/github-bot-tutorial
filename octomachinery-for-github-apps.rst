@@ -175,17 +175,11 @@ Your ``github-bot/`` should now look as follows::
 
 We'll start by creating a simple octomachinery app in ``__main__.py``.
 
-Edit ``__main__.py`` as follows::
+Edit ``__main__.py`` as follows:
 
-    from octomachinery.app.server.runner import run as run_app
-
-
-    if __name__ == "__main__":
-        run_app(
-            name='PyCon-Bot-by-webknjaz',
-            version='1.0.0',
-            url='https://github.com/apps/pyyyyyycoooon-booooot111',
-        )
+.. literalinclude:: resources/github-bot/github_bot/__main__.py
+   :language: python
+   :lines: 7,217-
 
 Save the file. Your webserver is now ready. From the command line and at
 the root of your project, enter the following::
@@ -316,23 +310,17 @@ whenever someone creates an issue, the bot will automatically say something like
 
 Go to the ``__main__.py`` file, in your ``github_bot`` codebase.
 
-The first change the part where we did is to add the following imports::
+The first change the part where we did is to add the following imports:
 
-    from octomachinery.app.routing import process_event_actions
-    from octomachinery.app.routing.decorators import process_webhook_payload
-    from octomachinery.app.runtime.context import RUNTIME_CONTEXT
+.. literalinclude:: resources/github-bot/github_bot/__main__.py
+   :language: python
+   :lines: 8-10
 
-Add the following coroutine (above **if __name__ == "__main__":**)::
+Add the following coroutine (above **if __name__ == "__main__":**):
 
-    @process_event_actions('issues', {'opened'})
-    @process_webhook_payload
-    async def on_issue_opened(
-            *,
-            action, issue, repository, sender, installation,
-            assignee=None, changes=None,
-    ):
-        """Whenever an issue is opened, greet the author and say thanks."""
-        github_api = RUNTIME_CONTEXT.app_installation_client
+.. literalinclude:: resources/github-bot/github_bot/__main__.py
+   :language: python
+   :lines: 16-20
 
 This is where we are essentially subscribing to the GitHub ``issues``
 event, and specifically to the "opened" issues event.
@@ -384,9 +372,12 @@ It's a big JSON object. The portion we're interested in is::
    }
 
 Notice that ``["issue"]["comments_url"]`` is actually the URL for posting comments to
-this particular issue. With this knowledge, your url is now::
+this particular issue. With this knowledge, your url is now:
 
-   comments_api_url = issue["comments_url"]
+.. literalinclude:: resources/github-bot/github_bot/__main__.py
+   :language: python
+   :lines: 22
+   :dedent: 4
 
 The next piece we want to figure out is what should the comment message be. For
 this exercise, we want to greet the author, and say something like "Thanks @author!".
@@ -406,72 +397,27 @@ Take a look again at the issue event payload::
 
 Did you spot it? The author's username can be accessed by ``issue["user"]["login"]``.
 
-So now your comment message should be::
+So now your comment message should be:
 
-   author = issue["user"]["login"]
-   message = (
-       f"Thanks for the report @{author}! "
-       "I will look into it ASAP! (I'm a bot 🤖)."
-   )
-
+.. literalinclude:: resources/github-bot/github_bot/__main__.py
+   :language: python
+   :lines: 23-27
+   :dedent: 4
 
 Piece all of that together, and actually make the API call to GitHub to create the
-comment::
+comment:
 
-    @process_event_actions('issues', {'opened'})
-    @process_webhook_payload
-    async def on_issue_opened(
-            *,
-            action, issue, repository, sender, installation,
-            assignee=None, changes=None,
-    ):
-        """Whenever an issue is opened, greet the author and say thanks."""
-
-        github_api = RUNTIME_CONTEXT.app_installation_client
-        comments_api_url = issue["comments_url"]
-        author = issue["user"]["login"]
-
-        message = (
-            f"Thanks for the report @{author}! "
-            "I will look into it ASAP! (I'm a bot 🤖)."
-        )
-        await github_api.post(comments_api_url, data={"body": message})
+.. literalinclude:: resources/github-bot/github_bot/__main__.py
+   :language: python
+   :lines: 16-28
+   :emphasize-lines: 13
 
 
 Your entire **__main__.py** should look like the following::
 
-    from octomachinery.app.routing import process_event_actions
-    from octomachinery.app.routing.decorators import process_webhook_payload
-    from octomachinery.app.runtime.context import RUNTIME_CONTEXT
-    from octomachinery.app.server.runner import run as run_app
-
-
-    @process_event_actions('issues', {'opened'})
-    @process_webhook_payload
-    async def on_issue_opened(
-            *,
-            action, issue, repository, sender, installation,
-            assignee=None, changes=None,
-    ):
-        """Whenever an issue is opened, greet the author and say thanks."""
-
-        github_api = RUNTIME_CONTEXT.app_installation_client
-        comments_api_url = issue["comments_url"]
-        author = issue["user"]["login"]
-
-        message = (
-            f"Thanks for the report @{author}! "
-            "I will look into it ASAP! (I'm a bot 🤖)."
-        )
-        await github_api.post(comments_api_url, data={"body": message})
-
-
-    if __name__ == "__main__":
-        run_app(
-            name='PyCon-Bot-by-webknjaz',
-            version='1.0.0',
-            url='https://github.com/apps/pyyyyyycoooon-booooot111',
-        )
+.. literalinclude:: resources/github-bot/github_bot/__main__.py
+   :language: python
+   :lines: 7-12,16-28,217-
 
 
 Commit that file, push it to GitHub, and deploy it in Heroku.
@@ -488,8 +434,8 @@ Congrats! You now have a bot in place! Let's give it another job.
 
 .. _say_thanks:
 
-Say thanks when an issue has been merged
-''''''''''''''''''''''''''''''''''''''''
+Say thanks when a PR has been merged
+''''''''''''''''''''''''''''''''''''
 
 Let's now have the bot **say thanks, whenever a pull request has been merged**.
 
