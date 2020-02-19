@@ -222,6 +222,26 @@ Whichever method you choose, you should see the output: "405: Method Not
 Allowed". That's expected: since the GitHub Apps event receiver is only
 supposed to process HTTP POST requests, other methods are not allowed.
 
+Update the Config Variables in Heroku
+-------------------------------------
+
+Almost ready to actually start writing bots! Are you still on the Heroku
+dashboard? We are not done there just yet :)
+
+Go to the **Settings** tab.
+
+Click on the **Reveal Config Vars** button. Add three config variables
+here.
+
+The first one called **GITHUB_APP_IDENTIFIER**. Copy it from ``.env``
+file you've created earlier.
+
+The next one is called **GITHUB_PRIVATE_KEY**. Copy it directly from the
+private key file you've downloaded earlier. No conversion is needed this
+time.
+
+Finally, set **HOST** to ``0.0.0.0``, ``DEBUG=false`` and ``ENV=prod``.
+
 Deploy to Heroku
 ----------------
 
@@ -284,26 +304,6 @@ toolbelt installed, you can read the logs by::
 Pro tip: Install `Timber.io Logging
 <https://elements.heroku.com/addons/timber-logging>`_ addon or similar
 to have a nicer view to more logs right in your browser.
-
-Update the Config Variables in Heroku
-'''''''''''''''''''''''''''''''''''''
-
-Almost ready to actually start writing bots! Are you still on the Heroku
-dashboard? We are not done there just yet :)
-
-Go to the **Settings** tab.
-
-Click on the **Reveal Config Vars** button. Add three config variables
-here.
-
-The first one called **GITHUB_APP_IDENTIFIER**. Copy it from ``.env``
-file you've created earlier.
-
-The next one is called **GITHUB_PRIVATE_KEY**. Copy it directly from the
-private key file you've downloaded earlier. No conversion is needed this
-time.
-
-Finally, set **HOST** to ``0.0.0.0``, ``DEBUG=false`` and ``ENV=prod``.
 
 Your first GitHub bot!
 ----------------------
