@@ -69,7 +69,7 @@ async def on_comment_created(*, comment, **_kw):
 
 @process_event_actions('pull_request', {'opened', 'edited'})
 @process_webhook_payload
-async def on_pr_check_wip(*, pull_request, **_kw):
+async def on_pr_check_wip(*, pull_request, repository, **_kw):
     """React to an opened or changed PR event.
 
     Send a status update to GitHub via Checks API.
@@ -77,9 +77,9 @@ async def on_pr_check_wip(*, pull_request, **_kw):
     check_run_name = 'Work-in-progress state'
 
     pr_head_sha = pull_request['head']['sha']
-    repo_url = pull_request['base']['repo']['url']
+    repo_api_url = repository['url']
 
-    check_runs_base_uri = f'{repo_url}/check-runs'
+    check_runs_base_uri = f'{repo_api_url}/check-runs'
 
     github_api = RUNTIME_CONTEXT.app_installation_client
     resp = await github_api.post(
