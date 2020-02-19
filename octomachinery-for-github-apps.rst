@@ -102,21 +102,26 @@ link address". We'll need this a bit later, in the next step.
 
 8. Keep the app page open, you'll need it soon
 
-Create two new repositories on GitHub
--------------------------------------
+Create a new repository on GitHub
+---------------------------------
 
-You'll need two repositories. The first one is to hold the codebase for
-the bot, essentially a webservice application. This is where you will
-actually push the source code. Going forward I will call this one the
-``github-bot``.
+You'll need a GitHub repository. We'll store the bot source code there
+which is essentially a webservice application. Further in this tutorial,
+it'll be referred to as ``github-bot``.
 
-The other repo, will mostly be empty for now. It will be the repo where
-the GitHub App will be installed, and your bot will interact with this
-repo. In real world, this will be the project that you're managing. I
-will be using my personal repo, ``strange-relationship``.
+Later we will also use this same repo to test our bot — we'll install a
+GitHub App there and it'll be able to interact with this repo.
 
-You can create the repositories on GitHub, and then clone it to your
-local machine.
+You can create the repository on GitHub, and then clone it to your local
+machine. Otherwise, ensure that you know how to add a remote and push a
+pre-existing Git repo to GitHub.
+
+.. note::
+
+  **Pro tip:** Use dashes (kebab-case) for your repo name like
+  ``github-bot`` or ``pycon-2020-github-app`` so that this name is not
+  a valid Python importable. This'll save you from confusion when you're
+  running commands from a wrong directory (accidentally).
 
 Create a github-bot
 -------------------
