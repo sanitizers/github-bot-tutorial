@@ -413,7 +413,7 @@ comment:
    :emphasize-lines: 13
 
 
-Your entire **__main__.py** should look like the following::
+Your entire **__main__.py** should look like the following:
 
 .. literalinclude:: resources/github-bot/github_bot/__main__.py
    :language: python
