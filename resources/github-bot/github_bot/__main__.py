@@ -77,7 +77,7 @@ async def on_pr_check_wip(*, pull_request, **_kw):
     check_run_name = 'Work-in-progress state'
 
     pr_head_sha = pull_request['head']['sha']
-    repo_url = pull_request['head']['repo']['url']
+    repo_url = pull_request['base']['repo']['url']
 
     check_runs_base_uri = f'{repo_url}/check-runs'
 
