@@ -67,7 +67,7 @@ f-strings
 
 We will use some f-strings during this tutorial.
 
-Mariatta's `talk
+Check out Mariatta's `talk
 <https://speakerdeck.com/mariatta/pep-498-the-monologue>`_ about
 f-strings.
 
