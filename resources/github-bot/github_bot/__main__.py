@@ -31,7 +31,7 @@ async def on_issue_opened(*, issue, **_kw):
 @process_event_actions('pull_request', {'closed'})
 @process_webhook_payload
 async def on_pr_merged(*, number, pull_request, **_kw):
-    """Whenever an issue is opened, greet the author and say thanks."""
+    """Whenever a PR is merged, say thanks to the author."""
     github_api = RUNTIME_CONTEXT.app_installation_client
 
     if not pull_request['merged']:
