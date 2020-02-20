@@ -72,6 +72,8 @@ link address". We'll need this a bit later, in the next step.
    - Homepage URL (put some URL here, you might use the same as for
      webhooks and change it later)
 
+   - **(New!)** Enable the checkbox called **Active**
+
 4. Select the following permissions:
 
    - ``Checks``: ``Read & Write``
