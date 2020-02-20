@@ -130,16 +130,17 @@ Let's get ready to write your own GitHub bot. To start, use your
 favorite text editor or IDE. Go to the directory where your github-bot
 is at (the root of the repository you've created earlier).
 
-Inside that directory, create a `requirements.txt` file.
-Add `octomachinery` to it.
+Inside that directory, create a ``requirements.txt`` file.
+Add ``octomachinery`` to it.
 
-requirements.txt::
+``requirements.txt``:
 
-   octomachinery
+.. literalinclude:: resources/github-bot/requirements.txt
+   :language: text
 
-Now, let's create a `.env` file in the directory next to
-`requirements.txt`. Add fill it in with the development env vars.
-For simplicity, set `GITHUB_PRIVATE_KEY_PATH` var and run the bash
+Now, let's create a ``.env`` file in the directory next to
+``requirements.txt``. Add fill it in with the development env vars.
+For simplicity, set ``GITHUB_PRIVATE_KEY_PATH`` var and run the bash
 one-liner as shown in the example below. It turns a multiline private
 key file contents into a properly escaped single-line string.
 
@@ -153,13 +154,9 @@ Now, copy-paste the *App ID* from the General App Settings page, which
 is still open in your browser and put it into `.env` file as a value for
 `GITHUB_APP_IDENTIFIER` variable. Also put there `DEBUG=true` and `ENV=dev`
 
-``.env`` should look like this now::
+``.env`` should look like this now:
 
-    GITHUB_PRIVATE_KEY='-----BEGIN RSA PRIVATE KEY-----\n[..snip..]\n-----END RSA PRIVATE KEY-----'
-    GITHUB_APP_IDENTIFIER=99999
-
-    DEBUG=true
-    ENV=dev
+.. literalinclude:: resources/github-bot/.env
 
 After that, create a ``.gitignore`` in the same folder, it should contain
 ``.env`` entry. You can use the following command to download appropriate
